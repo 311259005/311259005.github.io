@@ -3,214 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>芮妘 Sabrina｜個人履歷與作品集</title>
+  <title>劉芮妘 Sabrina｜個人作品集</title>
 
   <style>
     :root {
-      --background: #f2f5f6;
-      --paper: #fff;
-      --ink: #1b2931;
-      --muted: #52616a;
-      --accent: #285b6b;
-      --line: #dce4e8;
-      --tag: #eef5f7;
+      --paper: #fbfaf7;
+      --ink: #242421;
+      --muted: #5e5c54;
+      --accent: #4c604b;
+      --line: #dedbd2;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      background: var(--background);
+      background: var(--paper);
       color: var(--ink);
       font-family: system-ui, "PingFang TC", "Microsoft JhengHei", sans-serif;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    main {
-      width: min(100% - 32px, 960px);
-      margin: 28px auto;
-      padding: clamp(20px, 5vw, 44px);
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 8px;
+    .page {
+      width: min(100% - 40px, 760px);
+      margin-inline: auto;
     }
 
-    .profile {
-      display: grid;
-      grid-template-columns: 112px 1fr;
-      align-items: start;
-      gap: 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .portrait {
-      display: grid;
-      place-items: center;
-      width: 112px;
-      aspect-ratio: 4 / 5;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--tag);
+    a {
       color: var(--accent);
-      font-family: Georgia, serif;
-      font-size: 2.8rem;
+      text-underline-offset: 4px;
     }
 
-    img.portrait { object-fit: cover; }
-
-    h1, h2, h3, p { margin: 0; }
-
-    h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
-    h1 span { color: var(--accent); font-size: .65em; }
-    h3 { font-size: 1.05rem; }
-    p + p { margin-top: 8px; }
-
-    .intro { margin: 6px 0 12px; color: var(--muted); }
-    a { color: var(--accent); overflow-wrap: anywhere; }
-
-    .tags {
+    nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 14px;
+      gap: 8px 24px;
+      padding-block: 20px;
+      border-bottom: 1px solid var(--line);
+      font-size: .9rem;
     }
 
-    .tag {
-      padding: 3px 9px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: var(--tag);
+    .intro {
+      padding-block: clamp(48px, 10vw, 100px);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
       color: var(--accent);
       font-size: .85rem;
+      letter-spacing: .12em;
     }
 
-    section { margin-top: 26px; }
+    h1, h2, h3, h4 {
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      letter-spacing: -.03em;
+    }
 
     h2 {
-      margin-bottom: 12px;
-      padding-left: 10px;
-      border-left: 4px solid var(--accent);
-      font-size: 1.2rem;
-      line-height: 1.35;
+      margin-bottom: 16px;
+      font-size: clamp(1.45rem, 4vw, 2rem);
     }
 
-    .card {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
+    h3 {
+      font-size: 1.12rem;
     }
 
-    .card h3 { margin-bottom: 8px; }
-    .card ul { margin: 8px 0 0; padding-left: 1.4em; }
-    .card li + li { margin-top: 6px; }
+    p {
+      margin: 10px 0 0;
+    }
 
-    .job + .job {
-      margin-top: 14px;
-      padding-top: 14px;
+    .intro p:last-child {
+      max-width: 36rem;
+      margin-top: 18px;
+      color: var(--muted);
+    }
+
+    main > section {
+      padding-block: 36px;
       border-top: 1px solid var(--line);
     }
 
-    .two-columns {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+    .research {
+      margin-top: 24px;
+      padding-left: 16px;
+      border-left: 2px solid var(--accent);
+    }
+
+    .research article {
+      margin-top: 16px;
+    }
+
+    .research p,
+    .experience p {
+      color: var(--muted);
+    }
+
+    .experience article {
+      padding-block: 16px;
+    }
+
+    .experience article + article {
+      border-top: 1px solid var(--line);
     }
 
     footer {
-      margin-top: 28px;
-      padding-top: 14px;
+      padding-block: 20px 32px;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      text-align: center;
-      font-size: .85rem;
-    }
-
-    @media (max-width: 560px) {
-      main { width: calc(100% - 20px); margin: 10px auto; }
-      .profile { grid-template-columns: 1fr; gap: 12px; }
-      .portrait { width: 84px; font-size: 2rem; }
-      .two-columns { grid-template-columns: 1fr; gap: 0; }
+      font-size: .9rem;
     }
   </style>
 </head>
+
 <body>
-  <main>
-    <header class="profile">
-      <div class="portrait" aria-hidden="true">S</div>
+  <div class="page">
+    <nav aria-label="網站導覽">
+      <a href="#about">關於我</a>
+      <a href="#project">畢業專題</a>
+      <a href="#experience">工作經歷</a>
+    </nav>
 
-      <div>
-        <h1>芮妘 <span>Sabrina</span></h1>
-        <p><strong>國立臺北大學｜數位行銷學士學位學程</strong></p>
-        <p class="intro">
-          我是數位行銷系大四學生，對活動企劃有興趣。
-          我喜歡和人交流，也喜歡把想法整理成可以執行的活動方案。
-        </p>
-        <p><strong>GitHub</strong> <a href="https://github.com/311259005">github.com/311259005</a></p>
-
-        <div class="tags">
-          <span class="tag">數位行銷</span>
-          <span class="tag">活動企劃</span>
-          <span class="tag">前端網頁</span>
-          <span class="tag">操作結果確認</span>
-        </div>
-      </div>
+    <header class="intro" id="about">
+      <p class="eyebrow">數位行銷 × 活動企劃</p>
+      <h1>嗨，我是芮妘 Sabrina。</h1>
+      <p>
+        我是國立臺北大學數位行銷學士學位學程的大四學生。
+        我對活動企劃有興趣，喜歡和人交流，也喜歡把一個想法整理成可以執行的活動方案。
+        在大四專題中，我把這個做事習慣用在另一個問題上：一項操作完成後，要怎麼確認結果？
+      </p>
     </header>
 
-    <section>
-      <h2>畢業專題</h2>
-      <article class="card">
-        <h3>MarVoiReflex｜數位行銷工作流程語音助理</h3>
+    <main>
+      <section id="project">
+        <p class="eyebrow">01 / 畢業專題</p>
+        <h2>MarVoiReflex</h2>
         <p>
-          我們規劃一套在 Windows 電腦上運作的語音助理，
-          讓使用者可以用自然語言交代任務，並在系統操作後收到結果回報。
+          我們規劃一套在 Windows 電腦上運作的語音助理，讓使用者用自然語言交代任務，
+          並在操作後收到結果回報。我負責的是<strong>畫面資訊與結果確認</strong>。
         </p>
-        <p><strong>我的分工｜畫面資訊與結果確認</strong></p>
-        <ul>
-          <li><strong>畫面資訊：</strong>整理系統需要觀察的線索，例如目前開啟的視窗、頁面上的按鈕和錯誤訊息。</li>
-          <li><strong>結果確認：</strong>規劃不同操作的成功條件。例如開啟網頁後，確認是否進入指定頁面，以及主要內容是否已載入。</li>
-          <li><strong>結果回報：</strong>依據觀察到的資訊，區分操作成功、失敗或目前無法確認。</li>
-        </ul>
-      </article>
-    </section>
 
-    <section>
-      <h2>工作與實務經歷</h2>
-      <div class="card">
-        <article class="job">
-          <h3>中國信託｜法金產品發展部 業務助理</h3>
-          <p>目前在法金產品發展部擔任業務助理，協助團隊處理日常業務。</p>
-        </article>
-        <article class="job">
-          <h3>台聚集團｜資訊處 工讀生</h3>
-          <p>在資訊處工讀期間學習程式設計，也參與前端網頁改寫。</p>
-        </article>
-        <article class="job">
-          <h3>統一集團｜發展企劃單位 業務助理</h3>
-          <p>我曾在統一集團協助 7-ELEVEN 開店地點分析。</p>
-        </article>
-      </div>
-    </section>
+        <div class="research">
+          <h3>我的專題研究紀錄</h3>
 
-    <div class="two-columns">
-      <section>
-        <h2>證書與進修</h2>
-        <div class="card">
-          <h3>Autumn &amp; Winter Body Care</h3>
-          <p>完成身體保養證書課程，取得韓國 PHL_ATK 協會國際證書。</p>
+          <article>
+            <h4>怎麼讀取畫面上的資訊？</h4>
+            <p>
+              我整理系統需要觀察的線索，例如目前是哪個視窗、按鈕是否存在、
+              畫面上有沒有錯誤訊息。我也比較何時可以直接取得介面資訊，
+              何時需要用文字辨識讀取畫面上的字。
+            </p>
+          </article>
+
+          <article>
+            <h4>怎麼確認操作有沒有成功？</h4>
+            <p>
+              我為不同操作規劃成功條件。以開啟網頁為例，我會先確認是不是進入指定頁面，
+              再看主要內容是否載入。證據足夠時才回報成功，
+              如果出現錯誤或資訊不足，就分別回報失敗或尚未確認。
+            </p>
+          </article>
         </div>
       </section>
 
-      <section>
-        <h2>活動經驗</h2>
-        <div class="card">
-          <h3>好婚市集｜活動解說與介紹</h3>
-          <p>在市集現場協助介紹活動內容，並與參與者交流。</p>
-        </div>
-      </section>
-    </div>
+      <section class="experience" id="experience">
+        <p class="eyebrow">02 / 工作經歷</p>
+        <h2>我做過的工作</h2>
 
-    <footer>芮妘 Sabrina｜個人履歷與作品集</footer>
-  </main>
+        <article>
+          <h3>中國信託｜法金產品發展部</h3>
+          <p>目前擔任業務助理，協助團隊處理日常業務。</p>
+        </article>
+
+        <article>
+          <h3>台聚集團｜資訊處</h3>
+          <p>工讀期間學習程式設計，也參與前端網頁改寫。</p>
+        </article>
+
+        <article>
+          <h3>統一集團｜發展企劃單位</h3>
+          <p>曾協助 7-ELEVEN 開店地點分析。</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      劉芮妘 Sabrina · <a href="https://github.com/311259005">GitHub</a>
+    </footer>
+  </div>
 </body>
 </html>
